@@ -1,0 +1,38 @@
+mutation{
+  addPost(inputOrgs:{ 
+    name: "root",
+    children:[{
+      name:"member1",
+      email:"member1@gmail.com",
+      children:[
+        {
+           name:"member1",
+     			 email:"member1@gmail.com",
+        }
+      ]
+    }]
+  }){
+    name
+  } 
+  
+}
+
+query{
+  posts(name:"root"){
+    _id
+    name
+    email
+    children{
+      _id
+      name
+      email
+      children{
+       name
+     	 email
+      children{
+        name
+        email
+      }}
+    }
+  }
+}
